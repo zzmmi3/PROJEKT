@@ -1,0 +1,275 @@
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+
+  background-color:#91CAE2;
+  box-sizing: border-box;
+}
+.glavni {
+  position: sticky; /*ostane na vrhu*/
+  top: 0; /*ostane na vrhu*/
+  background-color: 	#022B3A;
+  color: white;
+  width: 100%;
+  height: 120px;
+  padding: 0 30px;
+  display: flex; /*horizont poravnava*/
+  align-items: center; /*vertikal poravnava*/
+  justify-content: space-between;
+  box-sizing: border-box; /* padding izracun+*/
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+
+.logo {
+  height: 100%; /* enaka višina headerja */
+  display: flex;
+  align-items: center;
+  
+}
+
+.logo img {
+  max-height: 100%; 
+  max-width: 150px; 
+  height: auto; /* ohrani razmerje višine in širine */
+ 
+}
+
+
+.title {
+  font-size: 3rem;
+  font-family: Times New Roman;
+
+}
+
+.rdeca
+{
+  font-weight: bold;
+  color: red;
+}
+
+.buttons a.button {
+  text-decoration: none;  /* odstrani podčrtavo */
+  background-color: #F57C00;
+  color: whitesmoke;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  
+
+}
+
+.buttons button:hover {
+  background-color: white;
+  color: #FDB813;
+}
+
+/* Osnovni slog za vse sekcije */
+.sekcija {
+ 
+  margin: 100px auto;
+  padding: 40px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid black;
+}
+
+
+.cenik {
+  background-color:#52796f;
+  border-color: #2f3e46;
+  border-radius: 20px;
+  border-width: 8px;
+}
+
+.kontakt {
+  background-color: #52796f;
+  border-color: #0d1321;
+  border-radius: 20px;
+  border-width: 8px;
+}
+
+.podjetje {
+  background-color: #52796f;
+  border-color: #2f3e46;
+  border-radius: 20px;
+  border-width: 8px;
+   text-align: center;
+
+  max-width: 650px; /* samo za podjetje */
+  margin: 100px auto;
+  padding: 20px 15px;
+}
+
+.obvestila {
+  background-color: #52796f;
+  border-color: #0d1321;
+  border-radius: 20px;
+  border-width: 8px;
+}
+
+.obvestilo
+{
+   border-bottom: 1px solid #0d1321; 
+   padding: 10px;
+}
+
+.komentarji {
+  background-color: #52796f;
+  border: 8px solid #2f3e46;
+  border-radius: 20px;
+   padding: 20px 15px;
+  margin: 100px auto;
+  max-width: 650px;
+}
+
+/* Tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 5px;
+  table-layout: auto;  
+}
+
+th, td {
+  padding: 12px 15px; /* GOR/DOL in LEVO/DESNO*/
+  border: 2px solid black;
+  text-align: center;
+  font-size: 18px;
+}
+
+thead {
+  background-color: #ee5b07;  
+  color: white;            
+}
+
+/* Kontakt */
+form {
+  display: flex;
+ 
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input, textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 5px;
+  
+}
+
+.kontakt button {
+  margin-top: 20px;
+  background-color: #ee5b07;
+  color: white;
+  border-style: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  
+  border-radius: 10px;
+ 
+}
+
+.kontakt button:hover {
+background-color: white;
+color: #ee5b07;
+}
+
+/* Obvestilo1 */
+
+.obvestilo:last-child {
+  border-bottom: none;
+}
+
+.obvestilo h3 {
+  margin: 0;
+  color: #0d1321;
+  font-size: 18px;
+}
+/* kom */
+.komentarji form {
+  display: flex;
+
+}
+
+.komentarji label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #0d1321;
+}
+
+.komentarji input,
+.komentarji select,
+.komentarji textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.komentarji button {
+  margin-top: 20px;
+  background-color: #ee5b07;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+ 
+}
+
+.komentarji button:hover {
+  background-color: white;
+  color: #ee5b07;
+}
+
+
+/* sliek */
+.image-container {
+  display: flex;
+ 
+  
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.image-container img {
+  width: 250px;  /* spremeni po potrebi */
+  height: auto;
+  border-radius: 10px;
+}
+
+
+
+
+footer {
+  background-color: 	#022B3A;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 100px; /*razmik do drugega dela*/
+}
+
+footer a {
+  color: #ff4c4c;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+

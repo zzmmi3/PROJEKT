@@ -1,10 +1,15 @@
+<?php
+require_once 'baza_povezava.php';
+include_once 'seja.php';
+?>
+
 <!DOCTYPE html>
 <html lang="sl">
 <head>
   <meta charset="UTF-8">
   <title>Dynamic_OTransp0rt0</title>
-  <link rel="stylesheet" type="text/css" href="css1.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css1.css">
 </head>
 <body>
 
@@ -18,13 +23,14 @@
   <div class="title"><span class="rdeca">DO</span> <span class="rdeca">T</span>RANSP0RT<span class="rdeca">0</span></div>
 
   <nav class="buttons">
-  <a href="#top" class="button">Domov</a>
-  <a href="#cenik" class="button">Cenik</a>
-  <a href="#kontakt" class="button">Kontakt</a>
-  <a href="#obvestila" class="button">Obvestila</a>
-  <a href="#podjetje" class="button">O nas</a>
-  <a href="prijava_uporabnikov.php" class="button">Prijava</a>
+    <a href="#top" class="button">Domov</a>
+    <a href="#cenik" class="button">Cenik</a>
+    <a href="#kontakt" class="button">Kontakt</a>
+    <a href="#obvestila" class="button">Obvestila</a>
+    <a href="#podjetje" class="button">O nas</a>
+    <a href="prijava_uporabnikov.php" class="nav-button">Prijava</a>
 </nav>
+
 </header>
 
 <br><br>
@@ -77,7 +83,7 @@
 <!-- KONTAKT -->
 <section id="kontakt" class="sekcija kontakt">
   <h2>PIŠI IN SE PRIJAVI</h2>
-  <form action="prijava_uporabnika.php" method="POST">
+  <form action="poslji.php" method="POST">
     <label for="kontakt-ime">Ime:</label>
     <input type="text" id="kontakt-ime" name="ime" required>
 
@@ -142,7 +148,9 @@
 <!-- Komentarji -->
 <section id="komentarji" class="sekcija komentarji">
   <h2>KOMENTIRAJ IN OCENI</h2>
-  <form action="komentarji.php" method="POST">
+
+  <form action="komantar_poslji.php" method="POST">
+
     <label for="komentar-ime">Ime:</label>
     <input type="text" id="komentar-ime" name="ime" required>
 

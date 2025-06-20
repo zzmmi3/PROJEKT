@@ -13,7 +13,7 @@ if (isset($_POST['registracija'])) {
     $telefon = $_POST['telefon'];
     $datum_reg = date('Y-m-d H:i:s');
 
-    // Preveri, če e-mail že obstaja
+    
     $check_query = "SELECT * FROM Uporabnik WHERE `email`='$email'";
 $check = mysqli_query($link, $check_query);
 
@@ -60,7 +60,7 @@ if (!empty($success)) echo "<p style='color:green;'>$success</p>";
     <input type="text" name="telefon" placeholder="Telefon"><br><br><br>
     <input type="submit" name="registracija" value="PRIJAVA"><br>
     <br>
-    <button><a href="prijava_uporabnikov.php">NAZAJ NA PRIJAVO</a></button>
+    <button><a href="prijava_uporabnikov.php"> NA PRIJAVO</a></button>
 </form>
 
 </body>

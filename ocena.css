@@ -1,0 +1,28 @@
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 20px auto;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+button {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}

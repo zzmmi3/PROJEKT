@@ -2,11 +2,12 @@
 require_once 'baza_povezava.php';
 include_once 'seja.php';
 
+$sql = "SELECT * FROM obvestila ORDER BY dat_objave DESC";
+$result = mysqli_query($conn, $sql);
+
 $sql_cenik = "SELECT * FROM cenik ORDER BY id_cenik";
 $rezultat_cenik = mysqli_query($conn, $sql_cenik);
 
-$sql_obvestila = "SELECT * FROM obvestila ORDER BY dat_objave DESC";
-$rezultat_obvestila = mysqli_query($conn, $sql_obvestila);
 
 $sql_podjetje = "SELECT * FROM podjetje LIMIT 1";
 $result_podjetje = mysqli_query($conn, $sql_podjetje);
@@ -30,17 +31,11 @@ $podjetje = mysqli_fetch_assoc($result_podjetje);
       <img src="slike/logo1.jpg" alt="Logo">
     </a>
   </div>
-
-  <div class="title"><span class="rdeca">DO</span> <span class="rdeca">T</span>RANSP0RT<span class="rdeca">0</span></div>
-
+  <div class="title">UREJANJE-ADMIN</div>
   <nav class="buttons">
-    <button><a href="#top">Domov</a></button>
-    <button><a href="#cenik">Cenik</a></button>
-    <button><a href="#kontakt">Kontakt</a></button>
-    <button><a href="#obvestila">Obvestila</a></button>
-    <button><a href="#podjetje">O nas</a></button>
-    <button><a href="prijava_uporabnikov.php">Prijava</a></button>
-    <button><a href="registracija.php">Registracija</a></button>
+    <button><a href="#top">DOMOV</a></button> 
+    <button><a href="update.php">PPREVOZI</a></button> 
+    <button><a href="odjava.php">ODJAVA</a></button>   
   </nav>
 </header>
 
@@ -61,7 +56,14 @@ $podjetje = mysqli_fetch_assoc($result_podjetje);
 </div> 
 
 <!-- CENIK -->
+<?php
+// Pridobi podatke cenika iz baze
+$sql_cenik = "SELECT * FROM cenik ORDER BY id_cenik";
+$rezultat_cenik = mysqli_query($conn, $sql_cenik);
+?>
+
 <section id="cenik" class="sekcija cenik">
+  <a href="uredi_cenik.php">Uredi</a>
   <h2>CENIK PREVOZOV</h2>
   <table border="1" cellpadding="5" cellspacing="0">
     <thead>
@@ -89,11 +91,20 @@ $podjetje = mysqli_fetch_assoc($result_podjetje);
   </table>
 </section>
 
+
 <!-- KONTAKT -->
 <section id="kontakt" class="sekcija kontakt">
+  <a href="pregled_rezervacij.php">Poglej</a>
   <h2>PIŠI IN SE PRIJAVI</h2>
+  
+       <br>
+      
+    <label for="zacetek">VAŠI PODATKI:</label>
+    
+     <br><br>
+
   <form action="poslji_rezervacijo.php" method="POST">
- 
+    
     <label for="ime">Ime:</label>
     <input type="text" id="ime" name="ime" required>
 
@@ -106,8 +117,11 @@ $podjetje = mysqli_fetch_assoc($result_podjetje);
     <label for="telefon">Telefonska številka:</label>
     <input type="tel" id="telefon" name="telefon">
 
+       <br>
+      
     <label for="zacetek">PODATKI O PREVOZU:</label>
-
+    
+     <br>
     <label for="zacetek">Začetna lokacija:</label>
     <input type="text" id="zacetek" name="zacetek" required>
 
@@ -138,18 +152,19 @@ $podjetje = mysqli_fetch_assoc($result_podjetje);
 
 <!-- OBVESTILA -->
 <section id="obvestila" class="sekcija obvestila">
+  <a href="uredi_obvestila.php">Uredi</a> 
   <h2>OBVESTILA</h2>
 
   <?php
-  if ($rezultat_obvestila && mysqli_num_rows($rezultat_obvestila) > 0) {
-      while ($row = mysqli_fetch_assoc($rezultat_obvestila)) {
-          echo "<div class='obvestilo'>";
-          echo "<h3>" . htmlspecialchars($row['dat_objave']) . "</h3>";
-          echo "<p>" . nl2br(htmlspecialchars($row['vsebina'])) . "</p>";
-          echo "</div>";
+  if ($result && mysqli_num_rows($result) > 0) {
+      while ($row = mysqli_fetch_assoc($result)) {
+          echo '<div class="obvestilo">';
+          echo '<h3>' . htmlspecialchars($row['dat_objave']) . '</h3>';
+          echo '<p>' . nl2br(htmlspecialchars($row['vsebina'])) . '</p>';
+          echo '</div>';
       }
   } else {
-      echo "<p>Ni obvestil.</p>";
+      echo '<p>Trenutno ni obvestil.</p>';
   }
   ?>
 </section>
@@ -168,6 +183,7 @@ $podjetje = mysqli_fetch_assoc($result_podjetje);
 
 <!-- O PODJETJU -->
 <section id="podjetje" class="sekcija podjetje">
+ <a href="opodjetju.php">Uredi</a> 
   <h2>O PODJETJU</h2>
   <p><strong>Ime podjetja:</strong> <?php echo htmlspecialchars($podjetje['ime'] ?? ''); ?></p>
   <p><strong>Naslov:</strong> <?php echo htmlspecialchars($podjetje['naslov'] ?? ''); ?></p>
@@ -180,8 +196,9 @@ $podjetje = mysqli_fetch_assoc($result_podjetje);
 
 <!-- KOMENTARJI -->
 <section id="komentarji" class="sekcija komentarji">
+<a href="ocena_voznika.php">Preglej</a>
   <h2>KOMENTIRAJ IN OCENI</h2>
-  <form action="poslji_oceno.php" method="POST">
+  <form action="poslji.php" method="POST">
     <label for="komentar-ime">Ime:</label>
     <input type="text" id="komentar-ime" name="ime" required>
 

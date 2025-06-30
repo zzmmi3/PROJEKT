@@ -7,7 +7,7 @@ $success = "";
 
 if (isset($_POST['submit'])) {
    
-    $email = mysqli_real_escape_string($link, $_POST['email']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
     $geslo = $_POST['geslo'];
 
     // Preverimo, če gre za admin prijavo (hardkodiran email in geslo)
@@ -19,19 +19,20 @@ if (isset($_POST['submit'])) {
         $_SESSION['log'] = true;
         $_SESSION['admin'] = true;
 
-        header("Location: index.php");
+        header("Location: admin.php"); 
         exit;
-        
+
     } else {
         // Preverimo prijavo za ostale uporabnike iz baze
         $geslo_hash = sha1($geslo);
 
         $query = "SELECT * FROM Uporabnik WHERE email='$email' AND geslo='$geslo_hash'";
-        $result = mysqli_query($link, $query);
+        $result = mysqli_query($conn, $query);
 
-        if (!$result) {
-            die("Napaka pri poizvedbi: " . mysqli_error($link));
-        }
+if (!$result) {
+    die("Napaka pri poizvedbi: " . mysqli_error($conn));
+}
+
 
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
@@ -43,7 +44,9 @@ if (isset($_POST['submit'])) {
             $_SESSION['log'] = true;
             $_SESSION['admin'] = false;
 
-            $success = "Prijava uspešna. <a href='index.php'>Pojdi na glavno stran</a>";
+             header("Location: index.php");  
+            exit;
+
         } else {
             $error = "Napačen mail ali geslo.";
         }
@@ -54,8 +57,10 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Prijava rezultat</title>
+    <meta charset="UTF-8" />
+    <title>Uredi podjetje</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="prijava.css" />
 </head>
 <body>
 <h1>PRIJAVA</h1>
@@ -73,9 +78,13 @@ if (!empty($error)) {
     <input type="password" name="geslo" placeholder="Geslo" required><br><br>
     <input type="submit" name="submit" value="PRIJAVA">
 </form>
+<br><br>
 
 <br>
-<a href="index.php">DOMOV</a>
-
+<button><a href="index.php">NAZAJ</a></button>
+<br><br>
+<a href="ponastavitev_gesla.php" style="color:blue; text-decoration:underline;">Pozabil sem geslo?</a>
+<br><br>
+<a href="registracija.php" style="color:blue; text-decoration:underline;">Registriraj se</a>
 </body>
 </html>

@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #e0f1f8; 
+  color: #03324f;
+ 
+}
+
+
+
+
+h2 {
+  color: #0a2f4f; 
+  font-family: "Times New Roman", serif;
+  margin-bottom: 20px;
+  font-size: 2.5em;
+ text-align: center;
+}
+
+form {
+  background-color: #cde8f6;
+  padding: 30px 25px;
+  border: 2px solid #155c91;
+  max-width: 400px;
+  width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  border-radius: 25px;  
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #155c91;
+  border-radius: 8px;
+  background-color: #f0faff;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #3b8fc2;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin: 10px auto; 
+  
+}
+
+input[type="submit"]:hover {
+  background-color: white;
+  color: #3b8fc2;
+  border: 2px solid #3b8fc2;
+}
+
+a  {
+  color: #3b8fc2;
+  text-decoration: underline;
+  font-weight: bold;
+  display: block;       /*perent, child, eden pod drugim*/
+  text-align: center;  
+  margin-top: 10px;     
+}
+
+a:hover {
+  color: #155c91;
+}

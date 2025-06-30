@@ -1,0 +1,96 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f9fc;
+  margin: 20px;
+  padding: 0;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  color: #155c91;
+  margin-bottom: 30px;
+}
+
+p {
+  max-width: 400px;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+form {
+  background-color: #cde8f6;
+  padding:30px 30px;
+  border: 2px solid #155c91;
+  border-radius: 30px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1.5px solid #155c91;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+
+form input[type="submit"] {
+  background-color: #3b8fc2;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 50%;
+  
+}
+
+form input[type="submit"]:hover {
+  background-color: white;
+  color: #3b8fc2;
+  border: 2px solid #3b8fc2;
+}
+
+
+button {
+  margin-top: 15px;
+  background-color: #3b8fc2;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 25px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #155c91;
+}
+
+/* Povezave znotraj gumbov */
+button a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+    
+}
+
+
